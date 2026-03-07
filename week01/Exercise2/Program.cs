@@ -43,16 +43,12 @@ class Program
         }
         else
         {
-            Console.WriteLine("You failed the class, you fool!!");
+            Console.WriteLine("You failed the class!!");
         }
 
 
-    }
+    } 
 }
 
-// Change your code from the first part, so that instead of printing the letter grade in the body of each if,
-//  else if, or else block, instead create a new variable called letter and then in each block,
-//   set this variable to the appropriate value. Finally, after the whole series of if, else if, else statements,
-//    have a single print statement that prints the letter grade once.
 
 
