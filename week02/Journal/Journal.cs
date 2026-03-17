@@ -37,6 +37,21 @@ public class Journal()
             _entries.Add(entry);
         }
     }
+
+    public void ShowSummary()
+    {
+        Console.WriteLine($"Total entries: {_entries.Count}");
+
+        if (_entries.Count > 0)
+        {
+            Console.WriteLine($"First entry date: {_entries[0]._date}");
+            Console.WriteLine($"Latest entry date: {_entries[_entries.Count - 1]._date}");
+        }
+        else
+        {
+            Console.WriteLine("No entries found.");
+        }
+    }
     
 
 }

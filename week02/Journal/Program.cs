@@ -1,3 +1,8 @@
+// EXTRA FEATURE:
+// This program includes a journal summary feature that displays
+// the total number of entries, the first entry date, and the most recent entry.
+// This helps users quickly understand their journaling activity.
+
 using System;
 
 class Program
@@ -15,6 +20,7 @@ class Program
             Console.WriteLine("3. Load journal from file");
             Console.WriteLine("4. Save journal to file");
             Console.WriteLine("5. Quit");
+            Console.WriteLine("6. Show journal summary");
             Console.Write("Choose an option: ");
 
             string choice = Console.ReadLine();
@@ -56,6 +62,10 @@ class Program
 
                 case "5": // Quit
                     running = false;
+                    break;
+
+                case "6":
+                    journal.ShowSummary();
                     break;
 
                 default:
