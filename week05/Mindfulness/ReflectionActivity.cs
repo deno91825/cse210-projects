@@ -1,41 +1,41 @@
 
-public class ReflectionActivity : Activity
+public class ReflectingActivity : Activity
 {
-    private List<string> _prompts = new List<string>
-    {
-        "Think of a time you helped someone.",
-        "Think of a time you did something difficult."
-    };
+    private List<string> _prompts;
+    private List<string> _questions;
 
-    private List<string> _questions = new List<string>
+    public ReflectingActivity(int duration)
+        : base("Reflection", "This activity will help you reflect on times you have shown strength and resilience.", duration)
     {
-        "Why was this meaningful?",
-        "What did you learn?"
-    };
+        _prompts = new List<string>
+        {
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you did something really difficult."
+        };
 
-    public ReflectionActivity()
-        : base("Reflection Activity",
-        "Reflect on times you showed strength.")
-    {
+        _questions = new List<string>
+        {
+            "Why was this experience meaningful to you?",
+            "How did you feel when it was complete?"
+        };
     }
 
     public void Run()
     {
-        StartMessage();
+        DisplayStartingMessage();
 
         Random rand = new Random();
-        Console.WriteLine(_prompts[rand.Next(_prompts.Count)]);
+        string prompt = _prompts[rand.Next(_prompts.Count)];
+        Console.WriteLine(prompt);
 
-        int time = GetDuration();
-        int elapsed = 0;
-
-        while (elapsed < time)
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+        while (DateTime.Now < endTime)
         {
-            Console.WriteLine(_questions[rand.Next(_questions.Count)]);
-            ShowSpinner(3);
-            elapsed += 3;
+            string question = _questions[rand.Next(_questions.Count)];
+            Console.WriteLine(question);
+            ShowSpinner(3); // pause for thinking
         }
 
-        EndMessage();
+        DisplayEndingMessage();
     }
 }

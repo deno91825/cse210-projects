@@ -1,30 +1,24 @@
-
 public class BreathingActivity : Activity
 {
-    public BreathingActivity()
-        : base("Breathing Activity",
-        "This helps you relax by breathing slowly.")
+    public BreathingActivity(int duration)
+        : base("Breathing", "This activity helps you relax by walking you through breathing in and out slowly.", duration)
     {
     }
 
     public void Run()
     {
-        StartMessage();
+        DisplayStartingMessage();
 
-        int time = GetDuration();
-        int elapsed = 0;
-
-        while (elapsed < time)
+        int cycles = _duration / 4; // 4 seconds per breathe in + out
+        for (int i = 0; i < cycles; i++)
         {
-            Console.WriteLine("Breathe in...");
-            Thread.Sleep(3000);
-
-            Console.WriteLine("Breathe out...");
-            Thread.Sleep(3000);
-
-            elapsed += 6;
+            Console.Write("Breathe in... ");
+            ShowCountDown(2);
+            Console.Write("Breathe out... ");
+            ShowCountDown(2);
+            Console.WriteLine();
         }
 
-        EndMessage();
+        DisplayEndingMessage();
     }
 }

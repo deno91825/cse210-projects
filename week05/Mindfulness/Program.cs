@@ -1,7 +1,7 @@
-// EXCEEDING REQUIREMENts:
-// - I Added random prompts
-// - I Added counting feature in ListingActivity
-// - I Added spinner animation
+// EXCEEDING REQUIREMENTS:
+// - Added random prompts
+// - Added counting feature in ListingActivity
+// - Added spinner animation
 using System;
 
 class Program
@@ -19,12 +19,15 @@ class Program
             Console.Write("Choose: ");
             string choice = Console.ReadLine();
 
+            Console.Write("Enter duration in seconds: ");
+            int duration = int.Parse(Console.ReadLine());
+
             if (choice == "1")
-                new BreathingActivity().Run();
+                new BreathingActivity(duration).Run();
             else if (choice == "2")
-                new ReflectionActivity().Run();
+                new ReflectingActivity(duration).Run();
             else if (choice == "3")
-                new ListingActivity().Run();
+                new ListingActivity(duration).Run();
             else if (choice == "4")
                 break;
         }

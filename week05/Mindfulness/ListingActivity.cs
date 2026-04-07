@@ -1,36 +1,40 @@
+using System;
+using System.Collections.Generic;
 
 public class ListingActivity : Activity
 {
-    private List<string> _prompts = new List<string>
-    {
-        "Who do you appreciate?",
-        "What are your strengths?"
-    };
+    private List<string> _prompts;
+    private int _count;
 
-    public ListingActivity()
-        : base("Listing Activity",
-        "List as many positive things as you can.")
+    public ListingActivity(int duration)
+        : base("Listing", "This activity will help you reflect on the good things in your life.", duration)
     {
+        _prompts = new List<string>
+        {
+            "Who are people that you appreciate?",
+            "What are personal strengths of yours?",
+            "Who are people you have helped this week?"
+        };
+        _count = 0;
     }
 
     public void Run()
     {
-        StartMessage();
+        DisplayStartingMessage();
 
         Random rand = new Random();
-        Console.WriteLine(_prompts[rand.Next(_prompts.Count)]);
+        string prompt = _prompts[rand.Next(_prompts.Count)];
+        Console.WriteLine(prompt);
 
-        int count = 0;
-        DateTime endTime = DateTime.Now.AddSeconds(GetDuration());
-
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
         while (DateTime.Now < endTime)
         {
             Console.Write("> ");
             Console.ReadLine();
-            count++;
+            _count++;
         }
 
-        Console.WriteLine($"You listed {count} items!");
-        EndMessage();
+        Console.WriteLine($"You listed {_count} items!");
+        DisplayEndingMessage();
     }
 }
