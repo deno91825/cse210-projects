@@ -4,6 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Mindfulness Project.");
+        Student student = new Student("Denis" , "123");
+        string name = student.GetName();
+        string number = student.GetNumber();
+        Console.WriteLine(name);
+        Console.WriteLine(number);
+
     }
+    
 }
