@@ -1,18 +1,14 @@
 /*
 EXCEEDS REQUIREMENTS:
-- Added score persistence (saved and loaded with goals)
-- Checklist bonus system implemented
-- Eternal goals use infinity symbol display
-- Clean polymorphic design using abstract base class
 - Supports multiple goal types using inheritance
 */
-using System;
-
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-     
+        GoalManager manager = new GoalManager();
+        bool running = true;
+
         while (running)
         {
             Console.WriteLine("\n--- Eternal Quest ---");
